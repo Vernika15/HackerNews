@@ -60,7 +60,7 @@ Hacker News
 ├── yarn-lock.json
 ```
 
-## API Overview
+## APP Overview
 - Home Screen shows new posts having title, posted by, points and time from Hacker API.
 - Application is loading 12 items in one request but user can scroll down and see more posts in the list.
 - On clicking of any post, user will be redirected to the webview having news url.
