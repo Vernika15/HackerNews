@@ -1,5 +1,7 @@
 # Hacker News
+
 ## Description
+
 Hacker news app made with React Native. This app display new posts list with infinite scroll.
 
 ## Prerequisites
@@ -12,10 +14,10 @@ Hacker news app made with React Native. This app display new posts list with inf
 - [Android Studio and Android SDK](https://developer.android.com/studio)
 
 ## Installation
+
 - Once you have downloaded or cloned this repository, run `yarn install` inside the directory.
 - To run app on android, run `yarn android` in project directory.
 - To run app on ios, install pods in ios directory run `cd ios && pod install`, then run run `yarn ios` in project directory.
-
 
 ## Base dependencies
 
@@ -27,6 +29,7 @@ Hacker news app made with React Native. This app display new posts list with inf
 - [moment](https://github.com/moment/moment) for parsing, validating, manipulating, and formatting dates.
 
 ## Project Structure
+
 ```
 Hacker News
 ├── __tests__
@@ -61,8 +64,10 @@ Hacker News
 ```
 
 ## APP Overview
+
 - Home Screen shows new posts having title, posted by, points and time from Hacker API.
 - Application is loading 12 items in one request but user can scroll down and see more posts in the list.
 - On clicking of any post, user will be redirected to the webview having news url.
 - User can also pull down the Home Screen to reload the new posts.
 
+<img src="images/dashboard_ss.png" width="425"/> <img src="images/post_detail_ss.png" width="425"/>
