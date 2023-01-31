@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from '@store/reducers';
+import { apiSlice } from '@api';
 
 /**
  * Main store file containing all the redux configuration
@@ -7,9 +8,9 @@ import rootReducer from '@store/reducers';
 export const store = configureStore({
   reducer: rootReducer,
   middleware: getDefaultMiddleware =>
-     getDefaultMiddleware({
-      serializableCheck: false
-    }),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(apiSlice.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
