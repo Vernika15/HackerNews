@@ -6,4 +6,12 @@ export const strings = {
   noWebsite: 'No website found for url!',
   noPostFound: 'No new post found!',
   loadingPost: 'Loading posts... ',
+  noInternet: 'No internet connection available.',
+  error: 'Error',
+  errorOccurred: 'An error occurred:',
+  unknownError: 'Unknown error',
+  serverError: 'Server Error',
+  serverErrorMessage: 'Internal server error. Please try again later.',
+  networkError: 'Network Error',
+  noConnection: 'No internet connection available.',
 };

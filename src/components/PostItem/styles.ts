@@ -1,17 +1,18 @@
-import {ViewStyle, StyleSheet, TextStyle, ImageStyle} from 'react-native';
-import {colors} from '@theme';
-import {scale, verticalScale} from '@utils';
+import { ViewStyle, StyleSheet, TextStyle, ImageStyle } from 'react-native';
+import { colors } from '@theme';
+import { scale, verticalScale } from '@utils';
 
 export default StyleSheet.create({
   itemWrapper: {
     backgroundColor: colors.background,
     paddingVertical: verticalScale(10),
     paddingHorizontal: scale(10),
-    marginHorizontal: scale(10),
-    marginBottom: verticalScale(10),
+    marginBottom: verticalScale(2),
     borderRadius: scale(8),
     borderWidth: 1,
-    borderColor: colors.primary80,
+    borderColor: 'transparent',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   } as ViewStyle,
   itemTitle: {
     fontSize: verticalScale(14),
@@ -29,4 +30,14 @@ export default StyleSheet.create({
     width: scale(30),
     tintColor: colors.white,
   } as ImageStyle,
+  rightIcon: {
+    height: scale(10),
+    width: scale(10),
+    tintColor: colors.black,
+  } as ImageStyle,
+  rightIconView: {
+    flex: 0.1,
+    alignSelf: 'center',
+    alignItems: 'flex-end',
+  } as ViewStyle,
 });

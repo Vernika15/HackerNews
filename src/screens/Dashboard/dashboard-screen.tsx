@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { Header, PostItem } from '@components';
 import { strings } from '@constants';
 import styles from './styles';
+import NetInfo from '@react-native-community/netinfo';
 
 // Number of post per page
 const POST_PER_PAGE = 15;
@@ -34,6 +35,19 @@ export const Dashboard: FC<
   const [currentPage, setCurrentPage] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
   const [paginatedList, setPaginatedList] = useState<number[]>([]);
+  // State for managing internet connection status
+  const [isConnected, setIsConnected] = useState<boolean>(true);
+
+  // Listen to network connectivity status
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setIsConnected(state.isConnected ?? true); // Update the network status
+    });
+
+    return () => {
+      unsubscribe(); // Clean up when component unmounts
+    };
+  }, []);
 
   useEffect(() => {
     loadFirstPage();
@@ -41,6 +55,11 @@ export const Dashboard: FC<
 
   /** Handle pull to referesh post */
   const handlePullToRefresh = () => {
+    // If not connected, stop loading and return
+    if (!isConnected) {
+      return;
+    }
+
     dispatch(apiSlice.util.invalidateTags(['PostIds']));
     Promise.all([refetch()]).then(() => {
       loadFirstPage();
@@ -98,11 +117,16 @@ export const Dashboard: FC<
   };
 
   /** Render message for empty list */
-  const renderEmptyPostItem = () => (
-    <View style={styles.errorWrapper}>
-      <Text style={styles.secondoryText}>{strings.noPostFound}</Text>
-    </View>
-  );
+  const renderEmptyPostItem = () => {
+    // If there's no internet connection, return null to avoid displaying any message
+    if (!isConnected) return null;
+
+    return (
+      <View style={styles.errorWrapper}>
+        <Text style={styles.secondoryText}>{strings.noPostFound}</Text>
+      </View>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>

@@ -1,6 +1,6 @@
-import {ViewStyle, StyleSheet} from 'react-native';
-import {verticalScale} from '@utils';
-import {colors} from '@theme';
+import { ViewStyle, StyleSheet } from 'react-native';
+import { verticalScale } from '@utils';
+import { colors } from '@theme';
 
 export default StyleSheet.create({
   root: {
@@ -18,8 +18,8 @@ export default StyleSheet.create({
   } as ViewStyle,
   postDetailsContainer: {
     flexGrow: 1,
-    paddingTop: 10,
-    paddingBottom: 30,
+    paddingTop: verticalScale(2),
+    paddingBottom: verticalScale(30),
   } as ViewStyle,
   errorWrapper: {
     flex: 1,
